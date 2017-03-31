@@ -1,9 +1,0 @@
-<accounts>
-	<domain name="site1">
-		<account user="user1" pass="password"/>
-		<account user="user2" pass="password"/>
-		<account user="user3" pass="password"/>
-		<account user="user4" pass="password"/>
-		<account user="user5" pass="password"/>
-	</domain>
-</accounts>
