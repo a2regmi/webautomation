@@ -19,7 +19,7 @@ public class TestAccountPool {
         Assert.assertFalse(accountPool.containsAccount(Domain.GOOGLE, account));
         Assert.assertNotNull(account.getUsername());
         Assert.assertNotNull(account.getPassword()); // Verify there is some value stored in them, we don't really care what it is
-        accountPool.returnAccount(Domain.GOOGLE, account); // Return to pool
+        accountPool.returnAccount(account); // Return to pool
         Assert.assertTrue(accountPool.containsAccount(Domain.GOOGLE, account));
     }
 }

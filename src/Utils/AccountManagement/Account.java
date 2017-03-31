@@ -4,25 +4,23 @@ package Utils.AccountManagement;
 public class Account {
 
     private String username, password;
+    private Domain domain;
 
-    public Account(String username, String password) {
+    public Account(String username, String password, Domain domain) {
         this.username = username;
         this.password = password;
+        this.domain = domain;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public Domain getDomain() {
+        return domain;
     }
 }

@@ -24,9 +24,9 @@ public class GenerateAccounts {
         ArrayList<Account> facebook = new ArrayList<>();
 
         for (int i=0; i<50; i++)
-            google.add(new Account("user" + i, "password" + i));
+            google.add(new Account("user" + i, "password" + i, Domain.GOOGLE));
         for (int i=0; i<50; i++)
-            facebook.add(new Account("user" + i, "password" + i));
+            facebook.add(new Account("user" + i, "password" + i, Domain.FACEBOOK));
 
         accountList.put(Domain.GOOGLE, google);
         accountList.put(Domain.FACEBOOK, facebook);

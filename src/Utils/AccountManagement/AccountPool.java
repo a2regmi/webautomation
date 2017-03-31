@@ -44,8 +44,8 @@ public class AccountPool {
         return (Account)accounts.remove(random.nextInt(accounts.size()-1));
     }
 
-    public void returnAccount(Domain domain, Account account){
-        accountList.get(domain).add(account);
+    public void returnAccount(Account account){
+        accountList.get(account.getDomain()).add(account);
     }
 
     public boolean containsAccount(Domain domain, Account account){
