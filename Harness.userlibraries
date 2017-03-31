@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="org.junit.jupiter:junit-jupiter-api:5.0.0-M3">
+    <archive path="C:/workspace/Harness/lib/junit-jupiter-api-5.0.0-M3.jar" />
+    <archive path="C:/workspace/Harness/lib/opentest4j-1.0.0-M1.jar" />
+    <archive path="C:/workspace/Harness/lib/junit-platform-commons-1.0.0-M3.jar" />
+  </library>
+  <library name="org.junit.platform:junit-platform-commons:1.0.0-M3">
+    <archive path="C:/workspace/Harness/lib/junit-platform-commons-1.0.0-M3.jar" />
+  </library>
+  <library name="org.junit.vintage:junit-vintage-engine:4.12.0-M3">
+    <archive path="C:/workspace/Harness/lib/junit-vintage-engine-4.12.0-M3.jar" />
+    <archive path="C:/workspace/Harness/lib/junit-platform-engine-1.0.0-M3.jar" />
+    <archive path="C:/workspace/Harness/lib/junit-platform-commons-1.0.0-M3.jar" />
+    <archive path="C:/workspace/Harness/lib/opentest4j-1.0.0-M1.jar" />
+    <archive path="C:/workspace/Harness/lib/junit-4.12.jar" />
+    <archive path="C:/workspace/Harness/lib/hamcrest-core-1.3.jar" />
+  </library>
+  <library name="selenium-server-standalone-3.3.1">
+    <archive path="C:/workspace/Harness/lib/selenium-server-standalone-3.3.1.jar" />
+  </library>
+  <library name="jdk1.8" />
+</eclipse-userlibraries>
+
