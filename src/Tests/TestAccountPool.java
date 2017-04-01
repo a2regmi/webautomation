@@ -2,7 +2,6 @@ package Tests;
 
 import Utils.AccountManagement.Account;
 import Utils.AccountManagement.AccountPool;
-import Utils.AccountManagement.Domain;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -15,11 +14,11 @@ public class TestAccountPool {
     @Test
     public void verifyRemoval(){
         AccountPool accountPool = AccountPool.getAccountPool();
-        Account account = accountPool.getAccount(Domain.GOOGLE); // Remove account from pool
-        Assert.assertFalse(accountPool.containsAccount(Domain.GOOGLE, account));
+        Account account = accountPool.getAccount(); // Remove account from pool
+        Assert.assertFalse(accountPool.containsAccount(account));
         Assert.assertNotNull(account.getUsername());
         Assert.assertNotNull(account.getPassword()); // Verify there is some value stored in them, we don't really care what it is
         accountPool.returnAccount(account); // Return to pool
-        Assert.assertTrue(accountPool.containsAccount(Domain.GOOGLE, account));
+        Assert.assertTrue(accountPool.containsAccount(account));
     }
 }

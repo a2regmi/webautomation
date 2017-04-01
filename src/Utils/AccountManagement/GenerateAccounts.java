@@ -1,15 +1,13 @@
 package Utils.AccountManagement;
 
+import Utils.ResourcePool;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 import static Utils.AccountManagement.AccountPool.ACCOUNT_XML;
 
@@ -17,30 +15,19 @@ import static Utils.AccountManagement.AccountPool.ACCOUNT_XML;
 public class GenerateAccounts {
 
     public static void main(String[] args) {
-        HashMap<Domain, ArrayList> accountList;
-        accountList = new HashMap<>();
+        ResourcePool<Account> pool = new ResourcePool<>(0); // init pool with no accounts
 
-        ArrayList<Account> google = new ArrayList<>();
-        ArrayList<Account> facebook = new ArrayList<>();
+        // Add 50 accounts
+        for(int i=0; i<50; i++)
+            pool.returnResource(new Account("user" + i, "password" + i));
 
-        for (int i=0; i<50; i++)
-            google.add(new Account("user" + i, "password" + i, Domain.GOOGLE));
-        for (int i=0; i<50; i++)
-            facebook.add(new Account("user" + i, "password" + i, Domain.FACEBOOK));
-
-        accountList.put(Domain.GOOGLE, google);
-        accountList.put(Domain.FACEBOOK, facebook);
-
-
-        XStream xStream = new XStream(new StaxDriver());
-        xStream.alias("account-map", Map.class);
-        xStream.alias("accounts", List.class);
-        xStream.alias("account", Account.class);
-        xStream.alias("domain", Domain.class);
-        xStream.alias("domains", Map.Entry.class);
-
+        // Serialize pool
         try {
-            Files.write(Paths.get(ACCOUNT_XML), xStream.toXML(accountList).getBytes());
+            XStream xStream = new XStream(new StaxDriver());
+            xStream.alias("account", Account.class);
+            xStream.alias("accounts", ConcurrentLinkedQueue.class);
+            xStream.alias("account-list", ResourcePool.class);
+            Files.write(Paths.get(ACCOUNT_XML), xStream.toXML(pool).getBytes());
         } catch (IOException e) {
             e.printStackTrace();
         }
